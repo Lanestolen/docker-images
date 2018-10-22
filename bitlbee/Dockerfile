@@ -10,6 +10,7 @@ RUN \
     apt-get install -y --no-install-recommends \
         bitlbee-libpurple
 
+# Installing requirements for bitlbee Facebook
 RUN \
     apt install -y --no-install-recommends\
         apt-transport-https wget gnupg2 ca-certificates && \
@@ -20,6 +21,14 @@ RUN \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         bitlbee-facebook
+
+# Installing requirements for bitlbee Slack
+RUN \
+    apt install -y --no-install-recommends\
+        git build-essential libpurple-dev && \
+    git clone https://github.com/dylex/slack-libpurple.git && \
+    cd slack-libpurple && \
+    make install
 
 # Expose of ports and volumes
 EXPOSE 1337
