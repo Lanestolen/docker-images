@@ -8,24 +8,22 @@ ENV BITLBEEPORT=1337
 RUN \
     apt-get update &&\
     apt-get install -y --no-install-recommends \
-        bitlbee-libpurple
+        bitlbee-libpurple git ca-certificates\
+        #Used for Facebook
+        autoconf automake build-essential libtool libglib2.0-dev libjson-glib-dev bitlbee-dev
 
 # Installing requirements for bitlbee Facebook
 RUN \
-    apt install -y --no-install-recommends\
-        apt-transport-https wget gnupg2 ca-certificates && \
-    echo "deb http://download.opensuse.org/repositories/home:/jgeboski/Debian_9.0 ./" >> /etc/apt/sources.list.d/jgeboski.list &&\
-    wget https://jgeboski.github.io/obs.key && \
-    apt-key add obs.key &&\
-    rm obs.key && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends \
-        bitlbee-facebook
+    git clone https://github.com/bitlbee/bitlbee-facebook.git && \
+    cd bitlbee-facebook && \
+    ./autogen.sh && \
+    make && \
+    make install
 
 # Installing requirements for bitlbee Slack
 RUN \
     apt install -y --no-install-recommends\
-        git build-essential libpurple-dev && \
+        libpurple-dev && \
     git clone https://github.com/dylex/slack-libpurple.git && \
     cd slack-libpurple && \
     make install
