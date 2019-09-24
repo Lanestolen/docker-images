@@ -10,7 +10,7 @@ apk add --no-cache \
     transmission-daemon=$TRANSMISSION_VERSION \
     transmission-cli=$TRANSMISSION_VERSION
 
-COPY root / /
+COPY root/ /
 
 # RUN \
 # chmod +x root/start.sh
