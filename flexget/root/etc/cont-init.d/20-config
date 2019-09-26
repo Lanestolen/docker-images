@@ -1,13 +1,13 @@
 #!/usr/bin/with-contenv bash
 
 # copy config
-[[ ! -f /config/config.yml ]] && cp \
-	/defaults/config.yml /config/config.yml
+[[ ! -f config.yml ]] && cp \
+	/defaults/config.yml config.yml
 
 if [ ! -z "$RSS" ] && [ ! -z "$USER" ] && [ ! -z "$PASS" ]; then
-	sed -i "/rss/c\ \ \ \ rss: $RSS" /config/config.yml
-	sed -i "/username/c\ \ \ \ \ \ \ \ username: $USER" /config/config.yml
-	sed -i "/password/c\ \ \ \ \ \ \ \ password: $PASS" /config/config.yml
+	sed -i "/rss/c\ \ \ \ rss: $RSS" config.yml
+	sed -i "/username/c\ \ \ \ \ \ \ \ username: $USER" config.yml
+	sed -i "/password/c\ \ \ \ \ \ \ \ password: $PASS" config.yml
 fi
 
 # permissions
