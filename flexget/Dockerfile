@@ -1,4 +1,4 @@
-FROM eyjhb/alpine-base:3.7
+FROM lanestolen/base-image
 LABEL maintainer="Lanestolen"
 
 ENV VERSION 1

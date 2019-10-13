@@ -1,8 +1,8 @@
-FROM eyjhb/alpine-base:3.7
+FROM lanestolen/base-image
 LABEL maintainer="Lanestolen"
 
 ENV VERSION 1
-ENV TRANSMISSION_VERSION 2.92-r8
+ENV TRANSMISSION_VERSION 2.94-r2
 
 # Install packages needed for transmission
 RUN \
