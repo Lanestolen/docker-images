@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:3.11.3
 LABEL maintainer="Lanestolen"
 
 ARG OVERLAY_VERSION="v1.22.1.0"
